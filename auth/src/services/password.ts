@@ -12,5 +12,9 @@ export class Password{
         return `${buf.toString('hex')}.${salt}`;
     }
     //Ta có storePassword và salt, lấy salt + suppliedPassword cần check = suppliedhashedPassword, nếu storePassword = suppliedhashedPassword thì là ok
-    static compare(storePassword:string, suppliedPassword: String){}
+    static async compare(storedPassword: string, suppliedPassword: string){
+        const [hashedPassword, salt] = storedPassword.split('.');
+        const buf = (await scryptAsync(suppliedPassword, salt, 64)) as Buffer;
+        return buf.toString('hex') === hashedPassword;
+    }
 }

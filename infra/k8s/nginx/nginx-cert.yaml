@@ -1,0 +1,12 @@
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: nginx-cert
+# spec:
+#   secretName: nginx-tls-secret
+#   issuerRef:
+#     name: nginx-cluster-issuer
+#     kind: ClusterIssuer
+#   dnsNames:
+#     - ticketing.com
+#     - www.ticketing.com
