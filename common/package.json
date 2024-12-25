@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "clean": "del ./build/*"
+    "clean": "del-cli ./build/*",
+    "build": "npm run clean && tsc"
   },
   "keywords": [],
   "author": "",
